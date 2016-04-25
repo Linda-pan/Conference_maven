@@ -38,11 +38,17 @@
         <property name="sessionDAO" ref="sessionDAO"/>
     </bean>
 
+
+    <!-- 启用shrio授权注解拦截方式 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realms">
             <list>
-                <ref bean="securityRealm"/>
+                <ref bean="securityRealm" />
             </list>
         </property>
         <!-- cacheManager,集合spring缓存工厂 -->
@@ -52,5 +58,6 @@
 
     <!-- Shiro生命周期处理器 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean id="securityRealm" class="com.linda.security.SecurityRealm"/>
 
 </beans>

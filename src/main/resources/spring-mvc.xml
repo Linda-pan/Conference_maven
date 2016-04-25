@@ -78,9 +78,7 @@
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 
-    <!-- 启用shrio授权注解拦截方式 -->
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>
+
+
 
 </beans>
